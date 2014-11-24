@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  host: localhost
+  username: 
+  password: 
+
+development:
+  <<: *default
+  database: events_calendar_development
+
+test:
+  <<: *default
+  database: events_calendar_test
+
+production:
+  <<: *default
+  database: events_calendar_production
+  username: events_calendar
+  password: <%= ENV['EVENTS_CALENDAR_DATABASE_PASSWORD'] %>
