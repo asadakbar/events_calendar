@@ -1,5 +1,25 @@
 <div class="row">
+  <div class="col-md-12 text-center">
+    <div class="well controls">
+      <%= link_to root_path(date: @date - 1.month), class: "btn btn-default" do %>
+        <i class="glyphicon glyphicon-backward"></i>
+      <% end %>
+      <%= "#{@date.strftime("%B")} #{@date.year}" %>
+      <%= link_to root_path(date: @date + 1.month), class: "btn btn-default" do %>
+        <i class="glyphicon glyphicon-forward"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-12">
+    <%= calendar @date do |date| %>
+      <%= date.day %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 ">
     <h1>Event List</h1>
 
     <table class="table">
@@ -24,5 +44,6 @@
         </tr>
       <% end %>
     </table>
-  <%#</div>%>
+  </div>
 </div>
+
