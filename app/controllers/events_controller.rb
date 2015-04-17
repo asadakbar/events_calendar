@@ -1,17 +1,21 @@
 class EventsController < ApplicationController
 
-  def new
-    @event = Event.new
-  end
+  def new; @event = Event.new; end
 
   def create
-    @event = Event.new(params[:event])
+    @event = Event.new(event_params)
 
     if @event.save
-      redirect_to root_path, notice: "Congrats, the event has been saved"
+      redirect_to event_path(@event), notice: "Congrats, the event has been saved"
     else
-      render :new, error: "Something didn't work right..."
+      render :edit
     end
   end
+
+  def show; @event = Event.find(params[:id]); end
+
+  private
+
+  def event_params; params.require(:event).permit!; end
 
 end

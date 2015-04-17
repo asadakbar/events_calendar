@@ -1,0 +1,9 @@
+<% if item.errors.any? %>
+  <div id="error-messages">
+    <% item.errors.full_messages.each do |m| %>
+      <div class="alert alert-danger" role="alert">
+        <%= "Uh Oh. Looks like we couldnt save #{item.name} because #{m}." %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

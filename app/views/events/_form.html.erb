@@ -1,0 +1,50 @@
+<%= form_for(@event, html: { class: "form-horizontal" }) do |f| %>
+  <%= render partial: "shared/errors", locals: { item: @event }%>
+
+  <div class='form-group' >
+    <%= f.label :name %>
+      <%= f.text_field :name %>
+  </div>
+
+  <div class='form-group' >
+    <%= f.label :description, html: { class: 'col-md-2'} %>
+    <div class='col-md-10'>
+      <%= f.text_field :description %>
+    </div>
+  </div>
+
+  <div class='form-group' >
+    <%= f.label :speaker, html: { class: 'col-md-2'} %>
+    <div class='col-md-10'>
+      <%= f.text_field :speaker %>
+    </div>
+  </div>
+
+  <div class='form-group' >
+    <%= f.label :date, html: { class: 'col-md-2'}  %>
+    <div class='col-md-10'>
+      <%= f.date_select :date %>
+    </div>
+  </div>
+
+  <div class='form-group' >
+    <%= f.label :time, html: { class: 'col-md-2'}  %>
+    <div class='col-md-10'>
+      <%= f.text_field :time %>
+    </div>
+  </div>
+
+  <div class='form-group' >
+    <%= f.label :center_id, html: { class: 'col-md-2'}  %>
+    <div class='col-md-10'>
+      <%= f.select :center_id, Center.all.map{|c| [c.name, c.id]} %>
+    </div>
+  </div>
+
+  <div class='form-group' >
+    <div class='col-offset-2 col-md-10' >
+      <%= f.submit html: {class: 'btn btn-defualt'} %>
+    </div>
+  </div>
+
+<% end %>

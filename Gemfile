@@ -45,5 +45,8 @@ gem 'sass-rails', '~> 5.0.0.beta1'
 
 gem 'autoprefixer-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.3.1.0'
-gem 'quiet_assets', '~> 1.0.3'
-gem 'better_errors'
+
+group :development do
+  gem 'better_errors'
+  gem 'quiet_assets', '~> 1.0.3'
+end
