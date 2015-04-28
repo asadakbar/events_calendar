@@ -1,0 +1,22 @@
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Speaker</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% events.each do |e| %>
+    <tr>
+      <td><%= e.name %></td>
+      <td><%= e.description %></td>
+      <td><%= e.speaker %></td>
+      <td><%= e.date %></td>
+      <td><%= e.time %></td>
+      <td><%= link_to "More Info", event_path(e), class: "btn btn-primary btn-xs" %></td>
+    </tr>
+  <% end %>
+</table>

@@ -10,6 +10,8 @@ class Calendar < Struct.new(:view, :date, :callback)
     end
   end
 
+  private
+
   def header
     content_tag :tr do
       HEADER.map { |day| content_tag :th, day }.join.html_safe
